@@ -220,11 +220,16 @@ tar czvf dashboard.tar.gz /dashboard
 |   |   |-- config.yaml      # 哪吒面板的配置，如 Github OAuth2 / gRPC 域名 / 端口 / 是否启用 TLS 等信息
 |   |   `-- sqlite.db        # SQLite 数据库文件，记录着面板设置的所有 severs 和 cron 等信息
 |   |-- entrypoint.sh        # 主脚本，容器运行后执行
-|   |-- nezha-agent          # 哪吒客户端，用于监控本地 localhost
 |   |-- nezha.csr            # SSL/TLS 证书签名请求
 |   |-- nezha.key            # SSL/TLS 证书的私钥信息
 |   |-- nezha.pem            # SSL/TLS 隐私增强邮件
 |   `-- restore.sh           # 还原备份脚本
+|-- usr
+|   `-- local
+|       `-- bin
+|           |-- cloudflared  # Cloudflare Argo 隧道主程序
+|           |-- grpcwebproxy # gRPC 反代主程序
+|           `-- nezha-agent  # 哪吒客户端，用于监控本地 localhost
 |-- dbfile                   # 记录最新的还原或备份文件名
 `-- version                  # 记录当前的面板 app 版本
 ```
@@ -240,6 +245,7 @@ tar czvf dashboard.tar.gz /dashboard
 * 如何给 GitHub Actions 添加自己的 Runner 主机: https://cloud.tencent.com/developer/article/1756690
 * github self-hosted runner 添加与启动: https://blog.csdn.net/sinat_32188225/article/details/125978331
 * 如何从Docker镜像中导出文件: https://www.pkslow.com/archives/extract-files-from-docker-image
+* grpcwebproxy: https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy
 
 
 ## 免责声明:

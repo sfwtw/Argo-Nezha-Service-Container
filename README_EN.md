@@ -220,11 +220,16 @@ tar czvf dashboard.tar.gz /dashboard
 |   |   |-- config.yaml      # Configuration for the Nezha panel, e.g. Github OAuth2 / gRPC domain / port / TLS enabled or not.
 |   |   `-- sqlite.db        # SQLite database file that records all severs and cron settings for the panel.
 |   |-- entrypoint.sh        # The main script, which is executed after the container is run.
-|   |-- nezha-agent          # Nezha client, used to monitor the localhost.
 |   |-- nezha.csr            # SSL/TLS certificate signing request
 |   |-- nezha.key            # Private key information for SSL/TLS certificate.
 |   |-- nezha.pem            # SSL/TLS Privacy Enhancement Email
 |   `-- restore.sh           # Restore backup scripts
+|-- usr
+|   `-- local
+|       `-- bin
+|           |-- cloudflared  # Cloudflare Argo tunnel main program.
+|           |-- grpcwebproxy # gRPC reverse proxy main program.
+|           `-- nezha-agent  # Nezha client, used to monitor the localhost.
 |-- dbfile                   # Record the name of the latest restore or backup file
 `-- version                  # Record the current panel app version
 ```
@@ -240,6 +245,7 @@ tar czvf dashboard.tar.gz /dashboard
 * How to add your own Runner host to GitHub Actions: https://cloud.tencent.com/developer/article/1756690
 * github self-hosted runner addition and startup: https://blog.csdn.net/sinat_32188225/article/details/125978331
 * How to export a file from a Docker image: https://www.pkslow.com/archives/extract-files-from-docker-image
+* grpcwebproxy: https://github.com/improbable-eng/grpc-web/tree/master/go/grpcwebproxy
 
 
 ## Disclaimer
